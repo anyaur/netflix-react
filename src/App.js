@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Header from './Components/Header';
+import './App.css'
+import Registration from './Components/Registration';
+import Login from './Components/Login';
+import {BrowserRouter, Route} from 'react-router-dom';
+import AppRouter from './Components/AppRouter';
+import Navigator from './Components/Navigator';
+import Page from './Components/Page';
 
-function App() {
+
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <AppRouter/>
+      {/* <Header />
+      <h1>Рекомендательная система NETFLIX помогает Вам подобрать фильм по нескольким параметрам!</h1> */}
+      <Registration />
+      <div class='app-wrapper-content'>
+        <Route path='/navigator' component={Navigator}/>
+      </div>
+    </BrowserRouter>
   );
 }
 
